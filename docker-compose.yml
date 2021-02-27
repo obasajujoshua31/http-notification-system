@@ -1,0 +1,34 @@
+version: '3'
+services:
+  publisher:
+    container_name: publisher
+    restart: always
+    build: 
+      context: ./publisher
+      dockerfile: Dockerfile
+    env_file: ./publisher/.env
+    ports:
+      - 8000:8000
+    volumes: 
+      - ./publisher/db.sqlite:/db.sqlite
+    networks:
+     - app-network
+
+  subscriber:
+    container_name: subscriber
+    restart: always
+    build: 
+     context: ./subscriber
+     dockerfile: Dockerfile
+    env_file: ./subscriber/.env
+    ports:
+      - 9000:9000
+    networks:
+     - app-network
+
+networks:    
+  app-network:
+    external: true
+
+
+

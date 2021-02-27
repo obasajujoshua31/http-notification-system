@@ -1,12 +1,8 @@
 const Topic = require("../models/topic");
 const Subscriber = require("../models/subscriber");
 const axios = require("axios");
-const logger = require("../../common/logger");
-const {
-  BADREQUEST,
-  INTERNALSERVERERROR,
-  OK,
-} = require("../../common/constants");
+const logger = require("../logger");
+const { BADREQUEST, INTERNALSERVERERROR, OK } = require("../constants");
 
 module.exports.handleSubscribeTopic = async (req, res) => {
   try {

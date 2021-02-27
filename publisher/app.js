@@ -1,11 +1,7 @@
 const express = require("express");
 require("dotenv").config();
-const {
-  handleNotFound,
-  initAppMiddlewares,
-} = require("./../common/app.middleware");
+const { handleNotFound, initAppMiddlewares } = require("./app.middleware");
 const { sequelize } = require("./models/topic");
-const Subsciber = require("./models/topic");
 const app = express();
 
 const serviceName = "publisher-service";
