@@ -1,0 +1,94 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a simple http notification system",
+    "version": "1.0.0",
+    "title": "Simple Subscribe API",
+    "contact": {
+      "email": "obasajujoshua31@gmail.com"
+    }
+  },
+  "host": "localhost:9000",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/test1": {
+      "post": {
+        "summary": "test one",
+        "description": "test one",
+        "operationId": "testOne",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "testOnePayload",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "subscription added"
+          }
+      }
+    }
+      },
+    "/test2": {
+      "post": {
+        "summary": "test two",
+        "description": "test two",
+        "operationId": "testTwo",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "testTwo",
+            "description": "test two payload",
+            "required": false
+          }
+        ],
+           "responses": {
+          "200": {
+            "description": "subscription added"
+          }
+      }
+      }
+    },
+    "/test3": {
+      "post": {
+        "summary": "test three",
+        "description": "test three",
+        "operationId": "testThree",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "testThree",
+            "description": "test three payload",
+            "required": false
+          }
+        ],
+           "responses": {
+          "200": {
+            "description": "subscription added"
+          }
+      }
+      }
+    }
+  }
+}

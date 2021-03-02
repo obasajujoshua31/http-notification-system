@@ -1,0 +1,107 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a simple http notification system",
+    "version": "1.0.0",
+    "title": "Simple Publisher Notification System API",
+    "contact": {
+      "email": "obasajujoshua31@gmail.com"
+    }
+  },
+  "host": "localhost:8000",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/subscribe/{topic}": {
+      "post": {
+        "summary": "subscribes to a new topic",
+        "description": "subscribe to a new topic",
+        "operationId": "subscribeTopic",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "topic",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "subcribePayload",
+            "description": "payload including url of subscriber",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/subscribePayload"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "subscription added"
+          },
+          "400": {
+            "description": "unable to dial url"
+          }
+        }
+      }
+    },
+    "/publish/{topic}": {
+      "post": {
+        "summary": "publish to subscribers of a topic",
+        "description": "publish to subscribers of a topic",
+        "operationId": "pubish",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "topic",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "publishPayload",
+            "description": "publish Payload",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/publishPayload"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "subscription added"
+          },
+          "400": {
+            "description": "unable to dial url"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "subscribePayload": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "example": "http://localhost:9000"
+        }
+      }
+    },
+    "publishPayload": {
+      "type": "object"
+    }
+  }
+}

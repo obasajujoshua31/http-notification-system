@@ -2,6 +2,8 @@ const express = require("express");
 require("dotenv").config();
 const { handleNotFound, initAppMiddlewares } = require("./app.middleware");
 const { sequelize } = require("./models/topic");
+const swaggerUi = require("swagger-ui-express");
+const swaggeDoc = require("./swagger.json");
 const app = express();
 
 const serviceName = "publisher-service";
@@ -12,6 +14,8 @@ const routes = require("./api/routes");
 initAppMiddlewares(app);
 
 const port = process.env.PORT || 8000;
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggeDoc));
 
 // initialize app routes
 app.use("/", routes);
