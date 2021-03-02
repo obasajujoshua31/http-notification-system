@@ -29,6 +29,6 @@ sequelize
     });
   })
   .catch((error) => {
-    console.error("Unable to connect to MongoDB Database", error);
+    console.error("Unable to connect to SQLite Database", error);
     process.exit(1);
   });
